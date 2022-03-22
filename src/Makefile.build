@@ -76,9 +76,9 @@ SOURCES = $(foreach dir,$(KERNEL_SUBDIRS),$($(dir)_SRC))
 OBJECTS = $(patsubst %.c,%.o,$(patsubst %.S,%.o,$(SOURCES)))
 DEPENDS = $(patsubst %.o,%.d,$(OBJECTS))
 
-GDBPORT := 1234
+GDBPORT = 1234
 IMAGE = kernel.img
-QEMUOPTS = -serial mon:stdio -gdb tcp::$(GDBPORT)
+QEMUOPTS = -serial mon:stdio -S -gdb tcp::$(GDBPORT)
 QEMUOPTS += $(shell if $(QEMU) -nographic -help | grep -q '^-D '; then echo '-D qemu.log'; fi)
 
 threads/kernel.lds.s: CPPFLAGS += -P
@@ -106,7 +106,7 @@ os.dsk: kernel.bin
 
 kernel.img: kernel.bin loader.bin
 	rm -f $@
-	$(PINTOS) --make-disk=$@ --kernel=kernel.bin --loader=loader.bin --
+	$(PINTOS) --make-disk=$@ --kernel=kernel.bin --loader=loader.bin
 
 qemu: $(IMAGE)
 	$(QEMU) -drive file=$(IMAGE),index=0,media=disk,format=raw $(QEMUOPTS)

@@ -139,4 +139,4 @@ document debugpintos
     Attach debugger to pintos process
 end
 
-loadusersymbols  src/userprog/build/tests/userprog/args-none
+b *0x7c00
