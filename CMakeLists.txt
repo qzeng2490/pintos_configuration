@@ -51,6 +51,18 @@ set(KERNEL_LIB_SOURCE_FILES
         src/lib/kernel/console.c
         )
 
+set(USER_LIB_SOURCE_FILES
+        src/lib/user/console.c
+        src/lib/user/debug.c
+        src/lib/user/entry.c
+        src/lib/user/syscall.c
+        )
+
+set(TEST_SOURCE_FILES
+        src/tests/lib.c
+        src/tests/main.c
+        )
+
 set(USER_PROG_SOURCE_FILES
         src/userprog/process.c
         src/userprog/pagedir.c
@@ -70,4 +82,6 @@ add_executable(dummy
         ${DRIVER_SOURCE_FILES}
         ${LIB_SOURCE_FILES}
         ${KERNEL_LIB_SOURCE_FILES}
+        ${USER_LIB_SOURCE_FILES}
+        ${TEST_SOURCE_FILES}
         )
