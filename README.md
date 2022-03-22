@@ -25,15 +25,15 @@ nohup bash -c "DISPLAY=window ../../utils/pintos --qemu --gdb -- $CMD > pintos.l
 echo "Done!"
 ```
 7. 用clion打开项目。如果之前打开过项目，删除.idea文件夹后再打开。点击右上角的Add configurations,选择GDB Remote Debug,
+```
+’target remote‘ args 填入以下信息：```tcp:localhost:1234```
 
-       ’target remote‘ args 填入以下信息：```tcp:localhost:1234```
+Symbol file:选择你 src/threads/build/kernel.o
 
-       Symbol file:选择你 src/threads/build/kernel.o
+Path mappings:
+remote: ../../threads
+local: 你的项目的完整路径/src/threads
 
-       Path mappings:
-       remote: ../../threads
-       local: 你的项目的完整路径/src/threads
-
-       Before launch:添加一个Run external tool,选择上面新建的bash脚本
-
+Before launch:添加一个Run external tool,选择上面新建的bash脚本
+```
 8. Cmd+D or Ctrl+D即可调试
