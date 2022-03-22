@@ -17,6 +17,7 @@ killall qemu-system-i386 # 杀掉上一次打开的QEMU。Clion不能在停止De
 CMD="run alarm-single" # 你要运行的指令。
 nohup bash -c "DISPLAY=window ../../utils/pintos --qemu --gdb -- $CMD > pintos.log" &
 echo "Done!"
+
 7. 用clion打开项目。如果之前打开过项目，删除.idea文件夹后再打开。点击右上角的Add configurations,选择GDB Remote Debug,填入以下信息：
 ’target remote‘ args: tcp:localhost:1234
 Symbol file:选择你 src/threads/build/kernel.o
