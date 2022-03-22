@@ -26,7 +26,7 @@ echo "Done!"
 ```
 7. 用clion打开项目。如果之前打开过项目，删除.idea文件夹后再打开。点击右上角的Add configurations,选择GDB Remote Debug,
 ```
-’target remote‘ args 填入以下信息：```tcp:localhost:1234```
+’target remote‘ args 填入以下信息：tcp:localhost:1234
 
 Symbol file:选择你 src/threads/build/kernel.o
 
