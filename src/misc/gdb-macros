@@ -140,3 +140,4 @@ document debugpintos
 end
 
 b *0x7c00
+loadusersymbols src/threads/build/loader.out

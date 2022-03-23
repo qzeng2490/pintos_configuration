@@ -99,7 +99,6 @@ loader.bin: threads/loader.o
 	$(LD) -N -e 0 -Ttext 0x7c00 -o loader.out $<
 	$(OBJDUMP) -S loader.out > loader.asm
 	$(OBJCOPY) -S -O binary -j .text loader.out $@
-	rm loader.out
 
 os.dsk: kernel.bin
 	cat $^ > $@
@@ -124,6 +123,7 @@ clean::
 	rm -f kernel.bin.tmp
 	rm -f kernel.o kernel.lds.s
 	rm -f kernel.bin loader.bin
+	rm -f loader.out
 	rm -f loader.asm kernel.asm kernel.sym
 	rm -f bochsout.txt bochsrc.txt
 	rm -f results grade
